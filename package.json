@@ -1,15 +1,11 @@
 {
   "name": "bossa-web",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Port of BOSSA to TypeScript with support for WebSerial API",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://ma-ku@github.com/ma-ku/bossa-web.git"
-  },
+  
+  "main": "./dist/bossa-web.js",
+  "types": "./dist/bossa-web.d.ts",  
+  
   "keywords": [
     "bossa",
     "arduino",
@@ -17,10 +13,60 @@
     "web-serial",
     "browser"
   ],
-  "author": "Mathias Kühn (mathias.kuehn@me.com)",
-  "license": "SEE LICENSE IN LICENSE",
+
+  "author": {
+    "name": "Mathias Kühn",
+    "email": "mathias.kuehn@me.com"
+  },
+  
+  "license": "BSD-3",
+  "readme": "README.md",
+
+  "homepage": "https://github.com/ma-ku/bossa-web#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://ma-ku@github.com/ma-ku/bossa-web.git"
+  },
   "bugs": {
     "url": "https://github.com/ma-ku/bossa-web/issues"
   },
-  "homepage": "https://github.com/ma-ku/bossa-web#readme"
+  "engines": {
+    "node": ">=12"
+  },
+
+  "scripts": {
+    "prebuild": "rimraf ./dist",
+    "build": "tsc",
+    "watch": "tsc --watch --preserveWatchOutput -p tsconfig.json",
+    "test": "mocha -r ts-node/register src/*.spec.ts",
+    "prepublishOnly": "npm run build"
+  },
+
+  "dependencies": {
+    "@types/events": "^3.0.0",
+    "@types/w3c-web-serial": "^1.0.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.7.2",
+    "@types/sinon": "^10.0.2",
+    "@types/sinon-chai": "^3.2.5",
+    "@types/uuid": "^8.3.1",
+    "@types/xml2js": "^0.4.9",
+    "chai": "^4.3.4",
+    "cross-env": "^7.0.3",
+    "gh-pages": "^3.2.3",
+    "mocha": "^9.1.0",
+    "rimraf": "^3.0.2",
+    "semver": "^7.3.5",
+    "sinon": "^11.1.2",
+    "sinon-chai": "^3.7.0",
+    "source-map-support": "^0.5.20",
+    "ts-node": "^10.4.0",
+    "typedoc": "^0.15.8",
+    "typedoc-md-theme": "^1.0.1",
+    "tslint": "^6.1.3",
+    "typescript": "^4.4.4"
+  }
 }

@@ -1,7 +1,6 @@
 
 /// <reference types="w3c-web-serial" />
 
-import { ThrowStmt } from '@angular/compiler';
 import { Buffer } from 'buffer';
 import { sleep, Uint8Buffer, toByteArray } from './util';
 

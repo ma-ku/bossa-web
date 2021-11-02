@@ -3,7 +3,7 @@ import { SamBA } from "./samba";
 
 export abstract class Applet {
 
-   /**
+  /**
    * Create a flasher
    *
    * @param samba SamBA instance handling IO with board

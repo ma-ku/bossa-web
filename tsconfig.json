@@ -1,0 +1,45 @@
+{
+  "include": [
+    "src/**/*.ts"
+  ],
+
+  "exclude": [
+    "node_modules",
+    "dist/**",
+    "src/**/*.test.ts"
+  ],
+  
+  "compileOnSave": true,
+
+  "compilerOptions": {
+    "declaration": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+		"outDir": "./dist",
+		"removeComments": false,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"sourceMap": false,
+		"inlineSourceMap": false,
+		"stripInternal": true,
+		"target": "es2015",
+		"watch": false, // true breaks circleci
+		"skipLibCheck": true, // Skip checking node_modules
+
+		"noImplicitAny": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"strictPropertyInitialization": true,
+		"strictNullChecks": true
+  },
+  "typedocOptions": {
+      "out": "docs",
+      "mode": "modules",
+      "excludeExternals": true,
+      "excludePrivate": true,
+      "module": "commonjs",
+      "target": "es2015"
+  }  
+}
