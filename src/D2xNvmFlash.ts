@@ -1,7 +1,7 @@
 
-import { Flash } from './flash';
-import { SamBA } from './samba';
+import { Flash, FlashCmdError, FlashConfigError, FlashPageError, FlashEraseError } from './flash';
 
+import { SamBA } from './samba';
 // CMDEX field should be 0xA5 to allow execution of any command.
 const CMDEX_KEY                 :  number =    0xa500;
 
@@ -39,26 +39,6 @@ const NVM_UR_BOD33_RESET_OFFSET   :  number =    0x1;
 const NVM_UR_BOD33_RESET_MASK     :  number =    0x7;
 const NVM_UR_NVM_LOCK_OFFSET      :  number =    0x6;
 
-export class FlashEraseError extends Error {
-
-  constructor(msg: string | undefined = undefined ) {
-    super(msg);
-  }
-}
-
-export class FlashCmdError extends Error {
-
-  constructor(msg: string | undefined = undefined ) {
-    super(msg);
-  }
-}
-
-export class FlashPageError extends Error {
-
-  constructor(msg: string | undefined = undefined ) {
-    super(msg);
-  }
-}
 
 export class D2xNvmFlash extends Flash {
 

@@ -1,6 +1,6 @@
 {
   "name": "bossa-web",
-  "version": "0.9.1",
+  "version": "0.9.3",
   "description": "Port of BOSSA to TypeScript with support for WebSerial API",
   
   "main": "./dist/bossa-web.js",
@@ -33,6 +33,13 @@
   "engines": {
     "node": ">=12"
   },
+
+  "files": [
+    "dist/",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
 
   "scripts": {
     "prebuild": "rimraf ./dist",

@@ -8,6 +8,7 @@ export class FlashConfigError extends Error {
     super(msg);
   }
 }
+
 export class FlashRegionError extends Error {
 
   constructor(msg: string | undefined = undefined ) {
@@ -15,6 +16,27 @@ export class FlashRegionError extends Error {
   }
 }
 
+
+export class FlashEraseError extends Error {
+
+  constructor(msg: string | undefined = undefined ) {
+    super(msg);
+  }
+}
+
+export class FlashCmdError extends Error {
+
+  constructor(msg: string | undefined = undefined ) {
+    super(msg);
+  }
+}
+
+export class FlashPageError extends Error {
+
+  constructor(msg: string | undefined = undefined ) {
+    super(msg);
+  }
+}
 class FlashOption<T>
 {
     constructor(value: T) {

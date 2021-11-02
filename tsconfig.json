@@ -13,7 +13,7 @@
 
   "compilerOptions": {
     "declaration": true,
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "noEmitOnError": true,
 		"outDir": "./dist",
@@ -39,7 +39,7 @@
       "mode": "modules",
       "excludeExternals": true,
       "excludePrivate": true,
-      "module": "commonjs",
+      "module": "es2015",
       "target": "es2015"
   }  
 }
