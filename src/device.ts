@@ -728,7 +728,10 @@ export class Device {
     return this._flash;
   }
 
-
+  get chipUniqueId() : string | undefined {
+      return this._uniqueId;
+  }
+  
   private async readChipUniqueId() : Promise<string> {
 
     let result = '';
