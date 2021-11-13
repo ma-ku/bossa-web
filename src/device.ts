@@ -485,8 +485,8 @@ export class Device {
             break;
 
         case 0x10010000: // J18A
-            this._uniqueId = await this.readChipUniqueId();
         case 0x10010005: // G18A
+            this._uniqueId = await this.readChipUniqueId();
         case 0x1001000a: // E18A
         case 0x1001000f: // G18A WLCSP
             this._family = Family.FAMILY_SAMD21;
@@ -731,7 +731,7 @@ export class Device {
   get chipUniqueId() : string | undefined {
       return this._uniqueId;
   }
-  
+
   private async readChipUniqueId() : Promise<string> {
 
     let result = '';
