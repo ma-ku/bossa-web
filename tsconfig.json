@@ -23,7 +23,7 @@
 		"sourceMap": false,
 		"inlineSourceMap": false,
 		"stripInternal": true,
-		"target": "es2015",
+		"target": "es2018",
 		"watch": false, // true breaks circleci
 		"skipLibCheck": true, // Skip checking node_modules
 
@@ -40,6 +40,6 @@
       "excludeExternals": true,
       "excludePrivate": true,
       "module": "es2015",
-      "target": "es2015"
+      "target": "es2018"
   }  
 }

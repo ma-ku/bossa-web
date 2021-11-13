@@ -57,10 +57,12 @@ export class Device {
 
   private _flash: Flash | undefined;
   private _family: Family;
+  private _uniqueId: string | undefined;
 
   constructor(samba: SamBA) {
     this._samba = samba;
     this._flash = undefined;
+    this._uniqueId = undefined;
     this._family = Family.FAMILY_NONE;
   }
 
@@ -483,6 +485,7 @@ export class Device {
             break;
 
         case 0x10010000: // J18A
+            this._uniqueId = await this.readChipUniqueId();
         case 0x10010005: // G18A
         case 0x1001000a: // E18A
         case 0x1001000f: // G18A WLCSP
@@ -500,14 +503,17 @@ export class Device {
             break;
 
         case 0x1001001d: // E17A
+            this._uniqueId = await this.readChipUniqueId();
         case 0x1001001a: // G17A
             this._family = Family.FAMILY_SAMR21;
+            
             flashPtr = new D2xNvmFlash(this._samba, "ATSAMR21x17", 2048, 64, 0x20002000, 0x20004000) ;
             break;
 
         case 0x1001001c: // E18A
         case 0x10010019: // G18A
             this._family = Family.FAMILY_SAMR21;
+            this._uniqueId = await this.readChipUniqueId();
             flashPtr = new D2xNvmFlash(this._samba, "ATSAMR21x18", 4096, 64, 0x20004000, 0x20008000) ;
             break;
 
@@ -720,6 +726,26 @@ export class Device {
 
   get flash() {
     return this._flash;
+  }
+
+
+  private async readChipUniqueId() : Promise<string> {
+
+    let result = '';
+
+    let word = await this._samba.readWord(0x0080A00C);
+    result += word.toString(16).toUpperCase().padStart(8, "0");
+
+    word = await this._samba.readWord(0x0080A040);
+    result += word.toString(16).toUpperCase().padStart(8, "0");
+
+    word = await this._samba.readWord(0x0080A044);
+    result += word.toString(16).toUpperCase().padStart(8, "0");
+
+    word = await this._samba.readWord(0x0080A048);
+    result += word.toString(16).toUpperCase().padStart(8, "0");
+
+    return result;
   }
 
   private async readChipId() : Promise<ChipId> {
