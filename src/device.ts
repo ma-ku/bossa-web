@@ -737,16 +737,16 @@ export class Device {
     let result = '';
 
     let word = await this._samba.readWord(0x0080A00C);
-    result += word.toString(16).toUpperCase().padStart(8, "0");
+    result += (word >>> 0).toString(16).toUpperCase().padStart(8, "0");
 
     word = await this._samba.readWord(0x0080A040);
-    result += word.toString(16).toUpperCase().padStart(8, "0");
+    result += (word >>> 0).toString(16).toUpperCase().padStart(8, "0");
 
     word = await this._samba.readWord(0x0080A044);
-    result += word.toString(16).toUpperCase().padStart(8, "0");
+    result += (word >>> 0).toString(16).toUpperCase().padStart(8, "0");
 
     word = await this._samba.readWord(0x0080A048);
-    result += word.toString(16).toUpperCase().padStart(8, "0");
+    result += (word >>> 0).toString(16).toUpperCase().padStart(8, "0");
 
     return result;
   }

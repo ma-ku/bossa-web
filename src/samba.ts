@@ -254,9 +254,7 @@ export class SamBA {
     let result = await this.sendCommand('w' + this.hex(addr) + ',4', 4);
 
     if (result) {
-      let value = result[0];
-
-      value = (result[3] << 24 | result[2] << 16 | result[1] << 8 | result[0] << 0);
+      let value = (result[3] << 24 | result[2] << 16 | result[1] << 8 | result[0] << 0);
 
       if (this.options.debug)
         this.options.logger.debug('readByte(addr=0x', this.hex(addr),')=0x',this.hex(value,8));
